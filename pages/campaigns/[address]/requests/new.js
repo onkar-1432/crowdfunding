@@ -1,9 +1,9 @@
 import React from "react";
 import 'semantic-ui-css/semantic.min.css'
 import { Form,Button,Message, Input } from "semantic-ui-react";
-import Layout from "../../../components/Layout";
-import Campaign from "../../../ethereum/campaign";
-import web3 from "../../../ethereum/web3";
+import Layout from "../../../../components/Layout";
+import Campaign from "../../../../ethereum/campaign";
+import web3 from "../../../../ethereum/web3";
 import Link from 'next/link'
 import Router from 'next/router'
 class RequestNew extends React.Component{

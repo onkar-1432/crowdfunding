@@ -2,17 +2,17 @@
 import React from "react";
 import 'semantic-ui-css/semantic.min.css'
 import { Card,Grid ,Button} from "semantic-ui-react";
-import web3 from "../../ethereum/web3";
-import Layout from "../../components/Layout";
+import web3 from "../../../ethereum/web3";
+import Layout from "../../../components/Layout";
 import Link from 'next/link'
 
 
 
 //import contribute form for the contribution
-import ContributeForm from "../../components/Contributeform";
+import ContributeForm from "../../../components/Contributeform";
 
 // we will import campaign which will give us instance of the campaign address
-import Campaign from "../../ethereum/campaign";
+import Campaign from "../../../ethereum/campaign";
 
 //we want wo get a handle on campaign that we are looking and call getsummary function
 //when we want ro fetch data inside of pagecomponent we use getinitalprops methods

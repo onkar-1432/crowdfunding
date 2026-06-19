@@ -2,10 +2,10 @@ import React from "react";
 import 'semantic-ui-css/semantic.min.css'
 import { Button ,Table} from "semantic-ui-react";
 import Link from 'next/link'
-import Layout from "../../../components/Layout";
-import Campaign from "../../../ethereum/campaign";
+import Layout from "../../../../components/Layout";
+import Campaign from "../../../../ethereum/campaign";
 
-import RequestRow from "../../../components/RequestRow";
+import RequestRow from "../../../../components/RequestRow";
 
 
 
