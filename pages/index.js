@@ -30,8 +30,17 @@ class CampaignIndex extends React.Component{
   }
 
   static async getInitialProps(){
-    const campaigns=await factory.methods.getdeployedcamp().call();
-    return {campaigns} // object is retuned by it 
+    if (!factory) {
+      console.warn('Factory not configured; skipping campaign fetch.');
+      return { campaigns: [] };
+    }
+    try {
+      const campaigns = await factory.methods.getdeployedcamp().call();
+      return { campaigns };
+    } catch (err) {
+      console.error('Error fetching campaigns in getInitialProps:', err.message || err);
+      return { campaigns: [] };
+    }
   }
 
 

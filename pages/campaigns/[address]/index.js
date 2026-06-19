@@ -28,20 +28,34 @@ class CampaignShow extends React.Component{
          // we use web3 to get the address of the contract
          //we will create another file to setup the contract code
           
-            const campaign=Campaign(props.query.address)
-            const summary = await  campaign.methods.getsummary().call();
-            
-            return {
-                address:props.query.address,
-                minimumContribution:summary[0],
-                balance:summary[1],
-                requestCount:summary[2],
-                approversCount:summary[3],
-                manager:summary[4],
-                name: summary[5],
-                description: summary[6],
-                image: summary[7],
+            try {
+                const campaign = Campaign(props.query.address);
+                const summary = await campaign.methods.getsummary().call();
 
+                return {
+                    address: props.query.address,
+                    minimumContribution: summary[0],
+                    balance: summary[1],
+                    requestCount: summary[2],
+                    approversCount: summary[3],
+                    manager: summary[4],
+                    name: summary[5],
+                    description: summary[6],
+                    image: summary[7],
+                };
+            } catch (err) {
+                console.error('Error fetching campaign summary:', err.message || err);
+                return {
+                    address: props.query.address,
+                    minimumContribution: '0',
+                    balance: '0',
+                    requestCount: '0',
+                    approversCount: '0',
+                    manager: '',
+                    name: '',
+                    description: '',
+                    image: '',
+                };
             }
         }
 

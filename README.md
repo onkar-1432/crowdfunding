@@ -32,6 +32,27 @@ Set the following before running locally or deploying:
 - `NEXT_PUBLIC_INFURA_NETWORK` — network to use (default: `sepolia`)
 - `NEXT_PUBLIC_FACTORY_ADDRESS` — deployed campaign factory contract address for that network
 
+## Deploying the smart contract
+To deploy the factory contract to a new testnet (recommended: Sepolia):
+
+1. Create an Infura project and get the project ID.
+2. Create a wallet mnemonic with funded testnet ETH.
+3. Set env variables locally before deploy:
+
+```bash
+export MNEMONIC="your twelve word mnemonic"
+export INFURA_PROJECT_ID="your-infura-project-id"
+export INFURA_NETWORK="sepolia"
+```
+
+4. Run:
+
+```bash
+npm run deploy
+```
+
+5. Use the printed contract address as `NEXT_PUBLIC_FACTORY_ADDRESS` in Vercel or hardcode it in `ethereum/factory.js`.
+
 ## How to run
 #### Install NodeJs and NPM
 * Follow instructions from [NodeJs Website](https://nodejs.org/en/download/) 

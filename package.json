@@ -7,7 +7,8 @@
     "test": "mocha",
     "dev": "next dev",
     "build": "NODE_OPTIONS=--openssl-legacy-provider next build",
-    "start": "NODE_ENV=production next start"
+    "start": "NODE_ENV=production next start",
+    "deploy": "node ethereum/deploy.js"
   },
   "author": "",
   "license": "ISC",

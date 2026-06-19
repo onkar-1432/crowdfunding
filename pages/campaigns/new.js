@@ -27,8 +27,21 @@ class CampaignNew extends React.Component{
        //it will force user to pay it which is exact behaviour
       this.setState({loading:true,errorMessage:''})
        try{
-            const accounts=await web3.eth.getAccounts();
-            await factory.methods.createcampgain(this.state.minimumContribution,this.state.campaignName,this.state.description,this.state.imageUrl)
+            if (typeof window !== 'undefined' && window.ethereum) {
+              await window.ethereum.request({ method: 'eth_requestAccounts' });
+            }
+
+            const accounts = await web3.eth.getAccounts();
+            if (!accounts || accounts.length === 0) {
+              throw new Error('Please connect your MetaMask wallet and refresh the page.');
+            }
+
+            await factory.methods.createcampgain(
+              this.state.minimumContribution,
+              this.state.campaignName,
+              this.state.description,
+              this.state.imageUrl
+            )
             .send({
                 //so if wecall function on browser we dont have to specify the amount of gas 
                 //but we need for testing purpose 

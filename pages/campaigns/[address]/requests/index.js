@@ -13,13 +13,14 @@ class RequestIndex extends React.Component{
   //get address out of url
   static async getInitialProps(props){
     const {address}=props.query
-    //get access to campaign instace
-    const campaign=Campaign(address)
-    const requestCount= await campaign.methods.getRequestsCount().call()
+    try {
+      //get access to campaign instace
+      const campaign = Campaign(address)
+      const requestCount = await campaign.methods.getRequestsCount().call()
     //rather than looping we will issue all calls at one time and we will wait all to be resolved by using promise .all resolve
     
     //appovers count to pass to RequestRow component
-    const approversCount=await campaign.methods.approversCount().call()
+      const approversCount = await campaign.methods.approversCount().call()
 
     //requests methods retrive individual request at index as we are using requests array public which stores all the request
     //requests is public variable so we will get handle on it
@@ -28,7 +29,7 @@ class RequestIndex extends React.Component{
     //.fill returns arrray with count number is
     // we will call map to iterare overr that array and return something
     //
-    const requests = await Promise.all(
+      const requests = await Promise.all(
       Array(parseInt(requestCount))
         .fill()
         .map((element, index) => {
@@ -36,8 +37,11 @@ class RequestIndex extends React.Component{
         })
     );
     
-
     return {address,requests,requestCount,approversCount}
+    } catch (err) {
+      console.error('Error fetching requests:', err.message || err)
+      return { address, requests: [], requestCount: 0, approversCount: 0 }
+    }
 
   }  
   
