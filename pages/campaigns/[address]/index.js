@@ -4,7 +4,7 @@ import 'semantic-ui-css/semantic.min.css'
 import { Card,Grid ,Button} from "semantic-ui-react";
 import web3 from "../../ethereum/web3";
 import Layout from "../../components/Layout";
-import {Link} from "../../routes"
+import Link from 'next/link'
 
 
 
@@ -119,7 +119,7 @@ class CampaignShow extends React.Component{
                     <Grid.Row>
                         
                         <Grid.Column>
-                            <Link route={`/campaigns/${this.props.address}/requests`}>
+                            <Link href={`/campaigns/${this.props.address}/requests`}>
                                 <a>
                                     <Button primary>View Requests</Button>
                                 </a>

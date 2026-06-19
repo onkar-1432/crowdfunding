@@ -2,7 +2,7 @@ import React from 'react'
 import factory from '../ethereum/factory'
 import{Card, Button, Grid,Image} from 'semantic-ui-react'
 import Layout from '../components/Layout'
-import {Link} from '../routes'
+import Link from 'next/link'
 //next does not have the support for css
 //so add and paste link tag
 import 'semantic-ui-css/semantic.min.css'
@@ -67,7 +67,7 @@ class CampaignIndex extends React.Component{
       header: summ[5],
       meta: adress,
       description: <div>
-                    <Link route={`/campaigns/${adress}`}><a>View Campaign &nbsp;</a></Link>
+                    <Link href={`/campaigns/${adress}`}><a>View Campaign &nbsp;</a></Link>
                 
                   </div>,
       fluid:true,
@@ -96,7 +96,7 @@ class CampaignIndex extends React.Component{
                         {this.renderCampaigns()}
                         </Grid.Column>
                         <Grid.Column width={4}>
-                          <Link route="/campaigns/new">
+                          <Link href="/campaigns/new">
                                 <a>
                                   <Button floated='right' content="Create Campaign" icon="add circle" primary={true}/>  
                                 </a>

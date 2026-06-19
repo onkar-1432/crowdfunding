@@ -1,4 +1,4 @@
-import { Router } from "../routes";
+import Router from 'next/router'
 import React from "react";
 import 'semantic-ui-css/semantic.min.css'
 import {Button, Form,Input,Message} from 'semantic-ui-react'
@@ -36,7 +36,7 @@ class ContributeForm extends React.Component{
             //pushroute creates new entry in browserr history
             // we dont want to go back 
             //if refresh we will rerun getInitial props and will get the new data
-            Router.replaceRoute(`/campaigns/${this.props.address}`)
+            Router.replace(`/campaigns/${this.props.address}`)
 
         }catch(err){
               this.setState({erroMessage:err.message});

@@ -1,9 +1,9 @@
 import React from "react";
+import Link from 'next/link'
 import { Menu ,Image,Icon} from "semantic-ui-react";
 //mENU.Menu gives us another menu hamburger kins of thing on right
 //Link helper allows us to create link tag that user can use to navigate around themselves
 
-import {Link} from '../routes'
 
 
 //menu .item and link tag styles classh with each other
@@ -17,17 +17,17 @@ export default () => {
             <Menu.Item>
                   <Icon color='black' name='ethereum'  size='big'/>
            </Menu.Item>
-            <Link route="/" >
+            <Link href="/" >
                 <a className="item" size='huge'>
                     <h4>CrowdFunding</h4></a>
             </Link>
             
             <Menu.Menu position="right">
-                <Link route="/" >
+                <Link href="/" >
                     <a className="item">
                         <h4>Campaigns</h4></a>
                 </Link>
-                <Link route="/campaigns/new" >
+                <Link href="/campaigns/new" >
                     <a className="item"><h4>+</h4></a>
                 </Link> 
             </Menu.Menu>

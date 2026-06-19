@@ -1,11 +1,11 @@
 import React from "react";
-import { render } from "react-dom";
 import 'semantic-ui-css/semantic.min.css'
 import { Form,Button,Message, Input } from "semantic-ui-react";
 import Layout from "../../../components/Layout";
 import Campaign from "../../../ethereum/campaign";
 import web3 from "../../../ethereum/web3";
-import {Link,Router} from '../../../routes'
+import Link from 'next/link'
+import Router from 'next/router'
 class RequestNew extends React.Component{
     state ={
         value:'',
@@ -36,7 +36,7 @@ class RequestNew extends React.Component{
             .send({from:accounts[0]})
 
             //after succesful creation of request we will reroute to capaigns/requests
-            Router.pushRoute(`/campaigns/${this.props.address}/requests`)
+            Router.push(`/campaigns/${this.props.address}/requests`)
         }catch(err)
         {
                this.setState({errorMessage:err.message})
@@ -49,7 +49,7 @@ class RequestNew extends React.Component{
         return (
 
             <Layout>
-                <Link route={`/campaigns/${this.props.address}/requests`}>
+                <Link href={`/campaigns/${this.props.address}/requests`}>
                  <a>
                     Back
                  </a>

@@ -25,6 +25,13 @@ The purpose of this project is to increase the credibility of crowdfunding campa
 - Node.js
 - Yarn or NPM
 
+## Environment variables
+The app now uses a standard Next.js route setup and a modern Infura network.
+Set the following before running locally or deploying:
+- `NEXT_PUBLIC_INFURA_PROJECT_ID` — your Infura project ID
+- `NEXT_PUBLIC_INFURA_NETWORK` — network to use (default: `sepolia`)
+- `NEXT_PUBLIC_FACTORY_ADDRESS` — deployed campaign factory contract address for that network
+
 ## How to run
 #### Install NodeJs and NPM
 * Follow instructions from [NodeJs Website](https://nodejs.org/en/download/) 

@@ -4,7 +4,7 @@ import { Form,Button,Input,Message } from "semantic-ui-react";
 import 'semantic-ui-css/semantic.min.css'
 import factory from '../../ethereum/factory'
 import web3 from "../../ethereum/web3";
-import {Router} from '../../routes'
+import Router from 'next/router'
 //link object is react component that allows us to render anchor tag in react component 
 //router object allows user to redirect preople from one page to another
 
@@ -37,7 +37,7 @@ class CampaignNew extends React.Component{
 
             })
             //after creation of succesful creation of contract redirect to index
-            Router.pushRoute('/')
+            Router.push('/')
         }catch(err)
         {
             this.setState({errorMessage:err.message})
