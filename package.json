@@ -11,6 +11,9 @@
   },
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": "24.x"
+  },
   "dependencies": {
     "ganache-cli": "^6.12.2",
     "mocha": "^10.0.0",
